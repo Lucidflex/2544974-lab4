@@ -1,9 +1,6 @@
 async function searchCountry(countryName) {
-   
     try {
         // Show loading spinner
-        console.log("asy");
-        document.getElementById("spinner").spinner.style.display = "block"; 
        
         // Fetch country data
         const response =await fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`);
@@ -19,14 +16,12 @@ async function searchCountry(countryName) {
         // Fetch bordering countries
         const borderingResponse =await fetch(`https://restcountries.com/v3.1/alpha/${country.code}`);
         const data2 = await borderingResponse.json();
-        console.log(data2.value);
         // Update bordering countries section
     } catch (error) {
         // Show error message
     } finally {
 
-        // Hide loading spinner
-        document.getElementById("spinner").spinner.style.display = "none"; 
+        // Hide loading spinner 
     }
 }
 document.getElementById('search-btn').addEventListener('click', () => {
@@ -34,6 +29,4 @@ document.getElementById('search-btn').addEventListener('click', () => {
     searchCountry(country);
 });
 
-
-console.log("hello");
 
